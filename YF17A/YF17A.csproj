@@ -1,0 +1,533 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{40F55A79-8704-49FB-8AAB-FE3122950702}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YF17A</RootNamespace>
+    <AssemblyName>YF17A</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AxInterop.AcroPDFLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\AxInterop.AcroPDFLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Interop.AcroPDFLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>Lib\Interop.AcroPDFLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="TwinCAT.Ads, Version=1.0.0.18, Culture=neutral, PublicKeyToken=180016cd49e5e8c3">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\TwinCAT.Ads.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AccessDatabase\Category.cs" />
+    <Compile Include="AccessDatabase\Parameter.cs" />
+    <Compile Include="AccessDatabase\Warnning.cs" />
+    <Compile Include="AccessDatabase\Log.cs" />
+    <Compile Include="BeckHoff.cs" />
+    <Compile Include="PageParameterHelper.cs" />
+    <Compile Include="PageUserActionResult.xaml.cs">
+      <DependentUpon>PageUserActionResult.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageUserRegister.xaml.cs">
+      <DependentUpon>PageUserRegister.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageUserPassword.xaml.cs">
+      <DependentUpon>PageUserPassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageUserManager.xaml.cs">
+      <DependentUpon>PageUserManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageCleanScreen.xaml.cs">
+      <DependentUpon>PageCleanScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageParameterBackup.xaml.cs">
+      <DependentUpon>PageParameterBackup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageRuntimeLog.xaml.cs">
+      <DependentUpon>PageRuntimeLog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageStatus.xaml.cs">
+      <DependentUpon>PageStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageTest.xaml.cs">
+      <DependentUpon>PageTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageWarningRecord.xaml.cs">
+      <DependentUpon>PageWarningRecord.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageDebugBucket.xaml.cs">
+      <DependentUpon>PageDebugBucket.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageDebugConsole.xaml.cs">
+      <DependentUpon>PageDebugConsole.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageDebugUp.xaml.cs">
+      <DependentUpon>PageDebugUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageDebugMain.xaml.cs">
+      <DependentUpon>PageDebugMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageUser.xaml.cs">
+      <DependentUpon>PageUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageWarnningHeader.xaml.cs">
+      <DependentUpon>PageWarnningHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TooltipControl.xaml.cs">
+      <DependentUpon>TooltipControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MenuControl.xaml.cs">
+      <DependentUpon>MenuControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="KeyboardControl.xaml.cs">
+      <DependentUpon>KeyboardControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageHome.xaml.cs">
+      <DependentUpon>PageHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageParameterDown.xaml.cs">
+      <DependentUpon>PageParameterDown.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageParameterUp.xaml.cs">
+      <DependentUpon>PageParameterUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IProtocal.cs" />
+    <Compile Include="PagePopup.xaml.cs">
+      <DependentUpon>PagePopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ToolbarParameter.xaml.cs">
+      <DependentUpon>ToolbarParameter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ToolbarMain.xaml.cs">
+      <DependentUpon>ToolbarMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ToolTipHelper.cs" />
+    <Compile Include="UCSwitch.xaml.cs">
+      <DependentUpon>UCSwitch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UCWarningLights.xaml.cs">
+      <DependentUpon>UCWarningLights.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utils.cs" />
+    <Compile Include="WarnningDataSource.cs" />
+    <Compile Include="Win32Helper.cs" />
+    <Page Include="ControlNames.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageUserActionResult.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageUserRegister.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageUserPassword.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageUserManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageCleanScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageParameterBackup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageRuntimeLog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageWarningRecord.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageDebugBucket.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageDebugConsole.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageDebugUp.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageDebugMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageUser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageWarnningHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TooltipControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MenuControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="KeyboardControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageHome.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="AccessDatabase\AccessTables.cs" />
+    <Compile Include="AccessDatabase\User.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AccessDatabase\ContentProvider.cs" />
+    <Compile Include="ImageButton.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="PageDocument.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageParameterMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PagePopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageWarningDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageParameterDown.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageParameterUp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ToolbarParameter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ToolbarMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UCSwitch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UCWarningLights.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PageDocument.xaml.cs">
+      <DependentUpon>PageDocument.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageLogin.xaml.cs">
+      <DependentUpon>PageLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageParameterMain.xaml.cs">
+      <DependentUpon>PageParameterMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageWarningDetail.xaml.cs">
+      <DependentUpon>PageWarningDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\Alarms.bmp" />
+    <Resource Include="image\Base.bmp" />
+    <Resource Include="image\BrakeMaintenance.bmp" />
+    <Resource Include="image\Cleaning.bmp" />
+    <Resource Include="image\CleanScreen.png" />
+    <Resource Include="image\debug_light_disable.png" />
+    <Resource Include="image\debug_light_enable.png" />
+    <Resource Include="image\debug_light_green.png" />
+    <Resource Include="image\debug_light_help.png" />
+    <Resource Include="image\debug_light_red.png" />
+    <Resource Include="image\debug_light_yellow.png" />
+    <Resource Include="image\document.png" />
+    <Resource Include="image\error_default.png" />
+    <Resource Include="image\Exit.bmp" />
+    <Resource Include="image\ExitHmi.bmp" />
+    <Resource Include="image\ExitWindows.bmp" />
+    <Resource Include="image\flow_bucket_01.png" />
+    <Resource Include="image\flow_bucket_02.png" />
+    <Resource Include="image\flow_bucket_03.png" />
+    <Resource Include="image\flow_bucket_04.png" />
+    <Resource Include="image\flow_bucket_05.png" />
+    <Resource Include="image\flow_bucket_06.png" />
+    <Resource Include="image\flow_bucket_07.png" />
+    <Resource Include="image\flow_bucket_08.png" />
+    <Resource Include="image\flow_bucket_09.png" />
+    <Resource Include="image\flow_bucket_10.png" />
+    <Resource Include="image\flow_bucket_11.png" />
+    <Resource Include="image\flow_bucket_12.png" />
+    <Resource Include="image\flow_bucket_13.png" />
+    <Resource Include="image\flow_bucket_14.png" />
+    <Resource Include="image\flow_bucket_15.png" />
+    <Resource Include="image\flow_bucket_16.png" />
+    <Resource Include="image\flow_bucket_17.png" />
+    <Resource Include="image\flow_bucket_18.png" />
+    <Resource Include="image\flow_bucket_19.png" />
+    <Resource Include="image\flow_bucket_20.png" />
+    <Resource Include="image\flow_bucket_21.png" />
+    <Resource Include="image\flow_bucket_22.png" />
+    <Resource Include="image\flow_bucket_23.png" />
+    <Resource Include="image\flow_bucket_24.png" />
+    <Resource Include="image\flow_bucket_25.png" />
+    <Resource Include="image\flow_bucket_26.png" />
+    <Resource Include="image\flow_bucket_27.png" />
+    <Resource Include="image\flow_bucket_28.png" />
+    <Resource Include="image\flow_bucket_29.png" />
+    <Resource Include="image\flow_bucket_30.png" />
+    <Resource Include="image\flow_bucket_31.png" />
+    <Resource Include="image\flow_bucket_32.png" />
+    <Resource Include="image\flow_bucket_33.png" />
+    <Resource Include="image\flow_bucket_34.png" />
+    <Resource Include="image\flow_bucket_35.png" />
+    <Resource Include="image\flow_bucket_36.png" />
+    <Resource Include="image\flow_bucket_37.png" />
+    <Resource Include="image\flow_bucket_38.png" />
+    <Resource Include="image\flow_bucket_39.png" />
+    <Resource Include="image\flow_bucket_40.png" />
+    <Resource Include="image\flow_bucket_41.png" />
+    <Resource Include="image\flow_bucket_42.png" />
+    <Resource Include="image\flow_bucket_43.png" />
+    <Resource Include="image\flow_bucket_44.png" />
+    <Resource Include="image\flow_bucket_45.png" />
+    <Resource Include="image\flow_bucket_46.png" />
+    <Resource Include="image\flow_bucket_47.png" />
+    <Resource Include="image\flow_bucket_48.png" />
+    <Resource Include="image\flow_bucket_49.png" />
+    <Resource Include="image\flow_bucket_50.png" />
+    <Resource Include="image\flow_bucket_51.png" />
+    <Resource Include="image\flow_bucket_52.png" />
+    <Resource Include="image\flow_bucket_53.png" />
+    <Resource Include="image\flow_bucket_54.png" />
+    <Resource Include="image\flow_bucket_55.png" />
+    <Resource Include="image\flow_bucket_56.png" />
+    <Resource Include="image\flow_bucket_57.png" />
+    <Resource Include="image\flow_bucket_58.png" />
+    <Resource Include="image\flow_bucket_59.png" />
+    <Resource Include="image\flow_bucket_60.png" />
+    <Resource Include="image\flow_bucket_61.png" />
+    <Resource Include="image\flow_bucket_62.png" />
+    <Resource Include="image\flow_bucket_63.png" />
+    <Resource Include="image\flow_bucket_64.png" />
+    <Resource Include="image\flow_bucket_65.png" />
+    <Resource Include="image\flow_bucket_82.png" />
+    <Resource Include="image\fl_2.png" />
+    <Resource Include="image\fl_3.png" />
+    <Resource Include="image\fl_4.png" />
+    <Resource Include="image\fl_5.png" />
+    <Resource Include="image\fl_6.png" />
+    <Resource Include="image\fl_7.png" />
+    <Resource Include="image\fl_8.png" />
+    <Resource Include="image\fl_9.png" />
+    <Resource Include="image\fl_help.png" />
+    <Resource Include="image\help.png" />
+    <Resource Include="image\home_bg.png" />
+    <Resource Include="image\keyboard.png" />
+    <Resource Include="image\LanguageSwitch.bmp" />
+    <Resource Include="image\Led_Position.bmp" />
+    <Resource Include="image\light_red.png" />
+    <Resource Include="image\light_yellow.png" />
+    <Resource Include="image\login.png" />
+    <Resource Include="image\logo1.bmp" />
+    <Resource Include="image\manual.bmp" />
+    <Resource Include="image\parampageup_bg.png" />
+    <Resource Include="image\return_caller.bmp" />
+    <Resource Include="image\return_home.bmp" />
+    <Resource Include="image\SettingsHMI.bmp" />
+    <Resource Include="image\status_logo.png" />
+    <Resource Include="image\SwitchOff.bmp" />
+    <Resource Include="image\SwitchOn.bmp" />
+    <Resource Include="image\user_bg.png" />
+    <Resource Include="image\flow_bucket_66.png" />
+    <Resource Include="image\flow_bucket_67.png" />
+    <Resource Include="image\flow_bucket_68.png" />
+    <Resource Include="image\flow_bucket_69.png" />
+    <Resource Include="image\flow_bucket_70.png" />
+    <Resource Include="image\flow_bucket_72.png" />
+    <Resource Include="image\flow_bucket_73.png" />
+    <Resource Include="image\flow_bucket_74.png" />
+    <Resource Include="image\flow_bucket_75.png" />
+    <Resource Include="image\flow_bucket_76.png" />
+    <Resource Include="image\flow_bucket_77.png" />
+    <Resource Include="image\flow_bucket_78.png" />
+    <Resource Include="image\flow_bucket_79.png" />
+    <Resource Include="image\flow_bucket_80.png" />
+    <Resource Include="image\flow_bucket_81.png" />
+    <Resource Include="image\flow_bucket_71.png" />
+    <Resource Include="image\flow_chuizhi_00.png" />
+    <Resource Include="image\flow_chuizhi_01.png" />
+    <Resource Include="image\flow_chuizhi_02.png" />
+    <Resource Include="image\flow_chuizhi_03.png" />
+    <Resource Include="image\flow_chuizhi_04.png" />
+    <Resource Include="image\flow_shuiping_04.png" />
+    <Resource Include="image\flow_shuiping_03.png" />
+    <Resource Include="image\flow_shuiping_02.png" />
+    <Resource Include="image\flow_shuiping_01.png" />
+    <Resource Include="image\flow_shuiping_00.png" />
+    <Resource Include="image\flow_tisheng1_02.png" />
+    <Resource Include="image\flow_tisheng1_00.png" />
+    <Resource Include="image\flow_tisheng1_01.png" />
+    <Resource Include="image\flow_tisheng1_03.png" />
+    <Resource Include="image\flow_tisheng2_00.png" />
+    <Resource Include="image\flow_tisheng2_01.png" />
+    <Resource Include="image\flow_tisheng2_02.png" />
+    <Resource Include="image\flow_tisheng2_03.png" />
+    <Resource Include="image\flow_tisheng2_04.png" />
+    <Resource Include="image\flow_tisheng_03.png" />
+    <Resource Include="image\flow_xiajiang1_00.png" />
+    <Resource Include="image\flow_xiajiang1_01.png" />
+    <Resource Include="image\flow_xiajiang1_02.png" />
+    <Resource Include="image\flow_xiajiang1_03.png" />
+    <Resource Include="image\flow_xiajiang1_04.png" />
+    <Resource Include="image\flow_xiajiang2_00.png" />
+    <Resource Include="image\flow_xiajiang2_01.png" />
+    <Resource Include="image\flow_xiajiang2_02.png" />
+    <Resource Include="image\flow_xiajiang2_03.png" />
+    <Resource Include="image\flow_xiajiang2_04.png" />
+    <Resource Include="image\flow_slope_00.png" />
+    <Resource Include="image\flow_slope_01.png" />
+    <Resource Include="image\flow_slope_02.png" />
+    <Resource Include="image\flow_slope_03.png" />
+    <Resource Include="image\flow_slope_04.png" />
+    <Resource Include="image\flow_tisheng1_04.png" />
+    <Resource Include="image\flow_bucket_full_00.png" />
+    <Resource Include="image\flow_bucket_full_01.png" />
+    <Resource Include="image\flow_bucket_full_02.png" />
+    <Resource Include="image\flow_bucket_full_03.png" />
+    <Resource Include="image\flow_bucket_full_04.png" />
+    <Resource Include="image\keyboard2.png" />
+    <Content Include="Lib\AxInterop.AcroPDFLib.dll" />
+    <Content Include="Lib\Interop.AcroPDFLib.dll" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

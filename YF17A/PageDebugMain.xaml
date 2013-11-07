@@ -1,0 +1,111 @@
+﻿<Page x:Class="YF17A.PageDebugMain"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+       xmlns:local="clr-namespace:YF17A" 
+       d:DesignHeight="610" d:DesignWidth="942"
+	Title="PageDebug" Loaded="Page_Loaded" Unloaded="Page_Unloaded">
+
+    <Page.Resources>
+        <Style  TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+
+        <Style  TargetType="Image">
+            <Setter Property="Source" Value="/YF17A;component/image/help.png"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Stretch" Value="None"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid  Name="rootPanel">
+        <!--<Image    Name="bg"    Source="/YF17A;component/image/home_bg.png"  Stretch="Fill"   />-->
+        <local:UCWarningLights  x:Name="tooltip"   />
+       
+        <Button HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="22" Name="yutong" Click="bucket_Click" Margin="350,250,0,0" >
+            <Grid>
+                <TextBlock FontSize="22"    Text="圆筒" Margin="0,1,0,0" />
+                <TextBlock FontSize="22" Text="状态"  Margin="0,24,0,0" />
+            </Grid>
+        </Button>
+        <Button HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="22" Name="tishengji" Click="elevator_Click" Margin="760,26,0,0">
+            <Grid>
+                <TextBlock FontSize="22"    Text="提升机" /> 
+                <TextBlock FontSize="22" Text="  状态"  Margin="0,24,0,0" />
+            </Grid>
+        </Button>
+        <Button  HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="22"   Name="diankonggui"  Click="console_Click" Margin="760,146,0,0" >
+            <Grid>
+                <TextBlock FontSize="22"    Text="电控柜"/>
+                <TextBlock FontSize="22" Text="  状态"  Margin="0,24,0,0" />
+            </Grid>
+        </Button>
+
+        <Border   HorizontalAlignment="Left" VerticalAlignment="Bottom"  Margin="10,0,0,30" Height="70" Width="932"  >
+            <Grid>
+                <!-- 包装机烟支速度（MW1310）Packer_cig_speed-->
+                <TextBlock  Text="包装机速度"  Margin="6,0,0,0"  VerticalAlignment="Top" />
+                <Button Name="tb_Packer_cig_speed" Content="10009" Style="{StaticResource SpeedButtonStyle}"  Foreground="Black" Margin="0,1,736,47"/>
+                <!--Slope_cig_speed	Int	斜向电机烟支速度		只读	数值显示	MW1886 -->
+                <TextBlock  Text="斜向电机速度"  Margin="6,0,0,0" VerticalAlignment="Center" />
+                <Button Name="tb_Slope_cig_speed" Content="10009"  Style="{StaticResource SpeedButtonStyle}" Foreground="Black" Margin="0,0,735,26" VerticalAlignment="Bottom" />
+                <!--<TextBlock Name="tb_Slope_cig_speed" Text="1000"  Margin="130,0,0,-1" HorizontalAlignment="Left" VerticalAlignment="Center" />-->
+                <!-- Store_cig_speed	Int	存储电机烟支速度		只读	数值显示	MW1884-->
+                <TextBlock  Text="存储电机速度"  Margin="6,0,0,0"  VerticalAlignment="Bottom" />
+                <Button Name="tb_Store_cig_speed" Content="10009"  Style="{StaticResource SpeedButtonStyle}" Foreground="Black" Margin="0,45,735,3"/>
+                <!-- 烟支直径（DB8.DBW46 cig_dim）-->
+                <!--弯道电机烟支速度（MW1304）Corner_cig_speed-->
+                <TextBlock Text="弯道电机速度"  Margin="291,-1,0,0" />
+                <Button Name="tb_Corner_cig_speed" Content="1230" Style="{StaticResource SpeedButtonStyle}" Foreground="Black" Margin="0,0,453,46" VerticalAlignment="Bottom" />
+                <!--提升电机烟支速度（MW1400）Life_cig_speed	 -->
+                <TextBlock Text="提升电机速度"  Margin="291,20,0,0" />
+                <Button Name="tb_Life_cig_speed" Content="2009" Style="{StaticResource SpeedButtonStyle}" Foreground="Black" Margin="0,0,453,26" VerticalAlignment="Bottom" />
+                <!--  传送电机烟支速度（MW1402）Transfer_cig_speed-->
+                <TextBlock Text="传送电机速度"  Margin="291,0,0,1" VerticalAlignment="Bottom" />
+                <Button Name="tb_Transfer_cig_speed" Content="3009" Style="{StaticResource SpeedButtonStyle}" Foreground="Black" Margin="0,44,453,4" />
+                <!-- 取样电机烟支速度（MW1302）Sample_cig_speed	-->
+                <TextBlock  Text="取样电机速度"  Margin="652,0,0,42" />
+                <Button Name="tb_Sample_cig_speed" Content="50009" Style="{StaticResource SpeedButtonStyle}" Foreground="Black" Margin="0,0,86,45" VerticalAlignment="Bottom" />
+                <!--卷烟机烟支速度（MW1300）Maker_cig_speed -->
+                <TextBlock  Text="卷烟机速度"  Margin="672,21,0,21"  VerticalAlignment="Center" />
+                <Button Name="tb_Maker_cig_speed" Content="60009" Style="{StaticResource SpeedButtonStyle}" Foreground="Black" Margin="0,23,86,23" />
+                <!--烟机出口电机速度：MW1404 MakerExport_cig_speed-->
+                <TextBlock  Text="烟机出口电机速度"  Margin="613,0,0,-1"  VerticalAlignment="Bottom" />
+                <Button Name="tb_MakerExport_cig_speed" Content="70009" Style="{StaticResource SpeedButtonStyle}" Foreground="Black" Margin="0,44,87,2" />
+
+                <TextBlock  Style="{StaticResource UnitTextStyle}" Margin="0,0,35,0" />
+                <TextBlock  Style="{StaticResource UnitTextStyle}" Margin="0,19,35,0" />
+                <TextBlock  Style="{StaticResource UnitTextStyle}" Margin="0,39,35,0"  />
+                <TextBlock  Style="{StaticResource UnitTextStyle}" Margin="0,-3,681,0"  />
+                <TextBlock Style="{StaticResource UnitTextStyle}"  Margin="0,19,681,0" />
+                <TextBlock  Style="{StaticResource UnitTextStyle}"  Margin="0,40,681,0"  />
+                <TextBlock Margin="0,-2,398,0" Style="{StaticResource UnitTextStyle}" />
+                <TextBlock Margin="0,19,398,0" Style="{StaticResource UnitTextStyle}" />
+                <TextBlock Margin="0,41,398,0" Style="{StaticResource UnitTextStyle}" />
+            </Grid>
+        </Border>
+
+        <!--  test_run	Bool	机器试运转		读/写	按钮/指示灯	M1000.6-->
+        <local:UCSwitch x:Name="btn_test_run"  Margin="573,130,0,0" />
+        
+              
+        <!--test_run_unprotected	Bool	机器强制试运转		读/写	按钮/指示灯	M1000.7-->
+        <local:UCSwitch Margin="555,337,0,0" x:Name="btn_test_run_unprotected"/>
+       
+        
+        <!--test_maker_speed	Int	卷烟机试运转速度		读/写	数值显示	MW1950-->
+        <TextBlock Text="卷烟机试运行速度" HorizontalAlignment="Right" Margin="0,271,235,0" />
+        <Button Content="1000" Style="{StaticResource SpeedButtonStyle}" Foreground="Black" Name="tb_test_maker_speed" Margin="0,299,310,291"  />
+        <TextBlock Style="{StaticResource UnitTextStyle}" Margin="0,235,261,0" />
+
+        <!--test_packer_speed	Int	包装机试运转速度		读/写	数值显示	MW1952 -->
+        <TextBlock Text="包装机试运行速度" HorizontalAlignment="Right" Margin="0,211,235,0" />
+        <TextBlock Style="{StaticResource UnitTextStyle}" Margin="0,295,261,0" />
+        <Button Style="{StaticResource SpeedButtonStyle}" Content="1001" Foreground="Black" Name="tb_test_packer_speed" Margin="0,238,310,352" />
+    </Grid>
+</Page>

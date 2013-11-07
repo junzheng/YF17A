@@ -1,0 +1,328 @@
+﻿<Page x:Class="YF17A.PageDebugConsole"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+       d:DesignHeight="610" d:DesignWidth="1024"
+	Title="PageDebug" Loaded="Page_Loaded" Unloaded="Page_Unloaded">
+
+    <Canvas >
+        <!-->
+        <Image   Name="bg"    Source="/YF17A;component/image/console_mock.png"  />
+        <-->
+        <TextBlock Name="tb_console_input_status" Canvas.Left="285" Canvas.Top="0" FontSize="32" Foreground="#FF1A0F0F" Text="YF17 控制柜输入状态" />
+        <TextBlock Name="tb_page_indictor" Canvas.Left="605" Canvas.Top="0" FontSize="32" Foreground="#FFBA4141"  Text="1/4" />
+        <Button Canvas.Left="188" Canvas.Top="5" Content="上一页" FontSize="22" Name="btn_part1" Click="btn_part1_Click" />
+        <Button Canvas.Left="669" Canvas.Top="5" Content="下一页" FontSize="22" Name="btn_part2" Click="btn_part2_Click" />
+        <Border x:Name="status_layout_part1" BorderBrush="Silver" BorderThickness="5" Canvas.Left="0" Canvas.Top="49" Height="538" Width="940" CornerRadius="10" >
+            <Canvas  Visibility="Visible">
+                <!--/******  I0.0- I0.7 *************/-->
+                <!--I0.0 	紧急停止Emergency_stop-->
+                <TextBlock  Text="紧急停止 	I0.0" Canvas.Left="6" Canvas.Top="6" FontSize="22" Foreground="#FF1A0F0F" />
+                <Image Name="iv_Emergency_stop"   Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" Canvas.Left="260" Canvas.Top="9" />
+                <!--I0.1 	烟机出口伺服主电源 MakerExit_power-->
+                <TextBlock  Text="烟机出口伺服主电源 I0.1" Canvas.Left="6" Canvas.Top="44" FontSize="22" Foreground="#FF1A0F0F"  />
+                <Image Name="iv_MakerExit_power" Canvas.Left="260" Canvas.Top="45"    Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--I0.2 	取样伺服主电源 Sample_power-->
+                <TextBlock Text="取样伺服主电源 	I0.2" Canvas.Left="6" Canvas.Top="82" FontSize="22" Foreground="#FF1A0F0F" />
+                <Image  Name="iv_Sample_power" Canvas.Left="260" Canvas.Top="82"   Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--I0.3 	弯道伺服主电源 Corner_power-->
+                <TextBlock  Text="弯道伺服主电源 	I0.3" Canvas.Left="6" Canvas.Top="119" FontSize="22" Foreground="#FF1A0F0F"  />
+                <Image Name="iv_Corner_power" Canvas.Left="260" Canvas.Top="119"    Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--I0.4 	提升伺服主电源 Lift_power-->
+                <TextBlock  Text="提升伺服主电源	I0.4" Canvas.Left="6" Canvas.Top="160" FontSize="22" Foreground="#FF1A0F0F" />
+                <Image Name="iv_Lift_power"  Canvas.Left="259" Canvas.Top="159"    Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--I0.5 	传送伺服主电源 Transfer_power-->
+                <TextBlock Text="传送伺服主电源 I0.5" Canvas.Left="2" Canvas.Top="196" FontSize="22" Foreground="#FF1A0F0F"  />
+                <Image Name="iv_Transfer_power" Canvas.Left="259" Canvas.Top="195"   Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--I0.6 	斜向伺服主电源 Slope_power-->
+                <TextBlock   Text="斜向伺服主电源 I0.6" Canvas.Left="6" Canvas.Top="236" FontSize="22" Foreground="#FF1A0F0F"  />
+                <Image Name="iv_Slope_power" Canvas.Left="260" Canvas.Top="235"   Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--I0.7 	存储伺服主电源 Store_power- -->
+                <TextBlock   Text="存储伺服主电源 I0.7" Canvas.Left="6" Canvas.Top="274" FontSize="22" Foreground="#FF1A0F0F"  />
+                <Image Name="iv_Store_power" Canvas.Left="260" Canvas.Top="273"    Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+
+                <!--/******  I1.0- I1.7 *************/
+                    I1.0	备用 Spare10
+                     I1.1	备用 Spare11-->
+                <!--   I1.2	卷烟机伺服驱动异常 MakerExit_servo_fault -->
+                <TextBlock  Canvas.Left="6" Canvas.Top="379" FontSize="22" Foreground="#FF1A0F0F"   Text="卷烟机伺服驱动异常 I1.2" />
+                <Image Name="iv_MakerExit_servo_fault" Canvas.Left="260" Canvas.Top="382"    Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--I1.1 Spare11	Bool	备用		只读	指示灯	I1.1-->
+                <!-- I1.3	取样伺服驱动异常 Sample_servo_fault- -->
+                <TextBlock Canvas.Left="6" Canvas.Top="417" FontSize="22" Foreground="#FF1A0F0F"   Text="取样伺服驱动异常 I1.3" />
+                <Image Name="iv_Sample_servo_fault" Canvas.Left="260" Canvas.Top="418"    Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--	 I1.4	弯道伺服驱动异常 Corner_servo_fault-->
+                <TextBlock Canvas.Left="6" Canvas.Top="455" FontSize="22" Foreground="#FF1A0F0F"  Text="弯道伺服驱动异常 I1.4" />
+                <Image  Name="iv_Corner_servo_fault"  Canvas.Left="260" Canvas.Top="455"   Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--	I1.5	提升伺服驱动异常 Lift_servo_fault-->
+                <TextBlock Canvas.Left="6" Canvas.Top="492" FontSize="22" Foreground="#FF1A0F0F"   Text="提升伺服驱动异常 I1.5" />
+                <Image Name="iv_Lift_servo_fault" Canvas.Left="260" Canvas.Top="492"    Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--  I1.6	传送伺服驱动异常 Transfer_servo_fault-->
+                <TextBlock Canvas.Left="319" Canvas.Top="9" FontSize="22" Foreground="#FF1A0F0F"   Text="传送伺服驱动异常 I1.6" />
+                <Image Name="iv_Transfer_servo_fault" Canvas.Left="555" Canvas.Top="7"    Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--	 I1.7	斜向伺服驱动异常 Slope_servo_fault-->
+                <TextBlock Canvas.Left="318" Canvas.Top="42" FontSize="22" Foreground="#FF1A0F0F"  Text="斜向伺服驱动异常 I1.7" />
+                <Image Name="iv_Slope_servo_fault" Canvas.Left="555" Canvas.Top="42"    Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+
+                <!--/******  I2.0- I2.7 *************/-->
+                <!-- I2.0	存储伺服驱动异常Store_servo_fault-->
+                <TextBlock Canvas.Left="6" Canvas.Top="576" FontSize="22" Foreground="#FF1A0F0F"   Text="存储伺服驱动异常 I2.0" />
+                <Image Name="iv_Store_servo_fault" Canvas.Left="208" Canvas.Top="583"   Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--I2.1	备用Spare21
+                I2.2	备用Spare22-->
+                <!-- I2.3	手动/自动 Elevater_man_auto_sw-->
+                <TextBlock Canvas.Left="318" Canvas.Top="186" FontSize="22" Foreground="#FF1A0F0F"   Text="手动/自动 I2.3" />
+                <Image Name="iv_Elevater_man_auto_sw" Canvas.Left="555" Canvas.Top="190"   Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--   I2.4	启动 Elevater_start_pb-->
+                <TextBlock Canvas.Left="318" Canvas.Top="224" FontSize="22" Foreground="#FF1A0F0F"  Text=" 启动 I2.4" />
+                <Image Name="iv_Elevater_start_pb"  Canvas.Left="556" Canvas.Top="225"     Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--I2.5	复位 Elevater_reset_pb-->
+                <TextBlock Canvas.Left="318" Canvas.Top="262" FontSize="22" Foreground="#FF1A0F0F"   Text="复位 I2.5" />
+                <Image Name="iv_Elevater_reset_pb" Canvas.Left="556" Canvas.Top="262"   Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--  I2.6	停止 Elevater_stop_pb-->
+                <TextBlock Canvas.Left="318" Canvas.Top="299" FontSize="22" Foreground="#FF1A0F0F" Text="停止 I2.6" />
+                <Image Name="iv_Elevater_stop_pb"  Canvas.Left="556" Canvas.Top="299"     Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!-- I2.7	紧急停止 Elevater_e_stop-->
+                <TextBlock Canvas.Left="318" Canvas.Top="333" FontSize="22" Foreground="#FF1A0F0F"  Text="紧急停止 I2.7" />
+                <Image Name="iv_Elevater_e_stop"  Canvas.Left="554" Canvas.Top="333"     Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+
+                <!--/******  I3.0- I3.7 *************/-->
+                <!--I3.0	备用Spare30
+                I3.1	备用Spare31-->
+                <!--I3.2	卷烟机出口有烟 MakerExit_sensor-->
+                <TextBlock Canvas.Left="307" Canvas.Top="449" FontSize="22" Foreground="#FF1A0F0F"   Text="卷烟机出口有烟 I3.2" />
+                <Image Name="iv_MakerExit_sensor" Canvas.Left="559" Canvas.Top="449"     Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--I3.3	取样器入口有烟 Sample_entrance_sensor-->
+                <TextBlock Canvas.Left="307" Canvas.Top="488" FontSize="22" Foreground="#FF1A0F0F"   Text="取样器入口有烟 I3.3" />
+                <Image Name="iv_Sample_entrance_sensor" Canvas.Left="559" Canvas.Top="488"     Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--I3.4	取样器入口堵塞(备用) Sample_entrance_jam_sensor-->
+                <TextBlock Canvas.Left="620" Canvas.Top="9" FontSize="22" Foreground="#FF1A0F0F"   Text="取样器入口堵塞(备用) I3.4" />
+                <Image Name="iv_Sample_entrance_jam_sensor" Canvas.Left="882" Canvas.Top="8"     Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--I3.5	弯道机入口堵塞 Corner_entrance_jam_sensor-->
+                <TextBlock Canvas.Left="620" Canvas.Top="43" FontSize="22" Foreground="#FF1A0F0F"   Text="弯道机入口堵塞 I3.5" />
+                <Image Name="iv_Corner_entrance_jam_sensor" Canvas.Left="882" Canvas.Top="46"    Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--I3.6	卷烟机出口堵塞(备用) MakerExit_jam_sensor-->
+                <TextBlock Canvas.Left="620" Canvas.Top="81" FontSize="22" Foreground="#FF1A0F0F"  Text="卷烟机出口堵塞(备用) I3.6" />
+                <Image Name="iv_MakerExit_jam_sensor" Canvas.Left="882" Canvas.Top="82"    Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--I3.7	备用Spare37-->
+
+                <!--/******  I4.0- I4.7 *************/-->
+                <!--I4.0	手动/自动 StoreUnit_man_auto_sw-->
+                <TextBlock Canvas.Left="620" Canvas.Top="151" FontSize="22" Foreground="#FF1A0F0F"  Text="手动/自动 I4.0" />
+                <Image Name="iv_StoreUnit_man_auto_sw" Canvas.Left="882" Canvas.Top="154"    Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--I4.1	全排空Spare41-->
+                <!--I4.2	启动 StoreUnit_start_button-->
+                <TextBlock Canvas.Left="625" Canvas.Top="233" FontSize="22" Foreground="#FF1A0F0F"  Text="启动I4.2" />
+                <Image Name="iv_StoreUnit_start_button" Canvas.Left="882" Canvas.Top="232"    Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--I4.3	复位 StoreUnit_reset_button-->
+                <TextBlock Canvas.Left="625" Canvas.Top="274" FontSize="22" Foreground="#FF1A0F0F"  Text="复位 I4.3" />
+                <Image Name="iv_StoreUnit_reset_button" Canvas.Left="884" Canvas.Top="269"    Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--I4.4	停机 StoreUnit_stop_button-->
+                <TextBlock Canvas.Left="631" Canvas.Top="307" FontSize="22" Foreground="#FF1A0F0F"  Text="停机 I4.4" />
+                <Image Name="iv_StoreUnit_stop_button" Canvas.Left="883" Canvas.Top="304"    Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--I4.5	紧急停止 StoreUnit_e_stop_button-->
+                <TextBlock  Text="紧急停止 I4.5" Canvas.Left="611" Canvas.Top="342" FontSize="22" Foreground="#FF1A0F0F" />
+                <Image Name="iv_StoreUnit_e_stop_button"   Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" Canvas.Left="882" Canvas.Top="342" />
+                <!--I4.6	备用Spare46-->
+                <!--I4.7	备用Spare47-->
+                <TextBlock Canvas.Left="6" Canvas.Top="302" FontSize="22" Foreground="#FF1A0F0F" Text="备用 I1.0" />
+                <Image Canvas.Left="260" Canvas.Top="305"  Source="/YF17A;component/image/debug_light_disable.png" Stretch="Uniform" />
+                <TextBlock Canvas.Left="6" Canvas.Top="340" FontSize="22" Foreground="#FF1A0F0F" Text="备用 I1.1" />
+                <Image Canvas.Left="260" Canvas.Top="341"  Source="/YF17A;component/image/debug_light_disable.png" Stretch="Uniform" />
+                <TextBlock Canvas.Left="318" Canvas.Top="74" FontSize="22" Foreground="#FF1A0F0F" Text="备用 I2.0" />
+                <Image Canvas.Left="555" Canvas.Top="77"  Source="/YF17A;component/image/debug_light_disable.png" Stretch="Uniform" />
+                <TextBlock Canvas.Left="318" Canvas.Top="112" FontSize="22" Foreground="#FF1A0F0F" Text="备用 I2.1" />
+                <Image Canvas.Left="555" Canvas.Top="113"  Source="/YF17A;component/image/debug_light_disable.png" Stretch="Uniform" />
+                <TextBlock Canvas.Left="318" Canvas.Top="151" FontSize="22" Foreground="#FF1A0F0F" Text="备用 I2.2" />
+                <Image Canvas.Left="556" Canvas.Top="149"  Source="/YF17A;component/image/debug_light_disable.png" Stretch="Uniform" />
+                <TextBlock Canvas.Left="314" Canvas.Top="366" FontSize="22" Foreground="#FF1A0F0F" Text="备用 I3.0" />
+                <Image Canvas.Left="556" Canvas.Top="372"  Source="/YF17A;component/image/debug_light_disable.png" Stretch="Uniform" />
+                <TextBlock Canvas.Left="314" Canvas.Top="404" FontSize="22" Foreground="#FF1A0F0F" Text="备用 I3.1" />
+                <Image Canvas.Left="557" Canvas.Top="408"  Source="/YF17A;component/image/debug_light_disable.png" Stretch="Uniform" />
+                <TextBlock Canvas.Left="623" Canvas.Top="113" FontSize="22" Foreground="#FF1A0F0F" Text="备用 I3.7" />
+                <Image Canvas.Left="883" Canvas.Top="118"  Source="/YF17A;component/image/debug_light_disable.png" Stretch="Uniform" />
+                <TextBlock Canvas.Left="623" Canvas.Top="378" FontSize="22" Foreground="#FF1A0F0F" Text="备用 I4.6" />
+                <Image Canvas.Left="884" Canvas.Top="378"  Source="/YF17A;component/image/debug_light_disable.png" Stretch="Uniform" />
+                <TextBlock Canvas.Left="620" Canvas.Top="418" FontSize="22" Foreground="#FF1A0F0F" Text="备用 I4.7" />
+                <Image Canvas.Left="884" Canvas.Top="416"  Source="/YF17A;component/image/debug_light_disable.png" Stretch="Uniform" />
+                <TextBlock Canvas.Left="625" Canvas.Top="192" FontSize="22" Foreground="#FF1A0F0F" Text="备用 I4.1" />
+                <Image Canvas.Left="883" Canvas.Top="193"  Source="/YF17A;component/image/debug_light_disable.png" Stretch="Uniform" />
+                <!--I5.4	备用Spare54 
+                I5.5	备用Spare55
+                I5.6	备用Spare56
+                I5.7	备用Spare57-->
+            </Canvas>
+        </Border>
+
+
+
+        <Border x:Name="status_layout_part2" BorderBrush="Silver" BorderThickness="5" Canvas.Left="0" Canvas.Top="49" Height="538"  Width="940" CornerRadius="10">
+            <Canvas  Visibility="Visible">
+                <!--/******  I5.0- I5.7 *************/-->
+                <!--I5.0	下降口堵塞 Downport_jam_sensor-->
+                <TextBlock  Text="下降口堵塞 I5.0" Canvas.Left="6" Canvas.Top="6" FontSize="22" Foreground="#FF1A0F0F"  />
+                <Image Name="iv_Downport_jam_sensor" Canvas.Left="277" Canvas.Top="6"    Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--I5.1	斜向通道空 Slope_empty-->
+                <TextBlock   Text="斜向通道空I5.1	" Canvas.Left="9" Canvas.Top="44" FontSize="22" Foreground="#FF1A0F0F" />
+                <Image   Name="iv_Slope_empty" Canvas.Left="277" Canvas.Top="40"   Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--I5.2	高架烟支存在 Transfer_cig_exist-->
+                <TextBlock   Text="高架烟支存在 I5.2" Canvas.Left="8" Canvas.Top="81" FontSize="22" Foreground="#FF1A0F0F"  />
+                <Image Name="iv_Transfer_cig_exist" Canvas.Left="277" Canvas.Top="77"    Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--I5.3	传送过载 Transfer_overload_sensor-->
+                <TextBlock  Text="传送过载 I5.3" Canvas.Left="8" Canvas.Top="119" FontSize="22" Foreground="#FF1A0F0F" />
+                <Image  Name="iv_Transfer_overload_sensor" Canvas.Left="277" Canvas.Top="114"    Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+
+                <!--/******  I6.0- I6.7 *************/-->
+                <!--I6.0	存储器满 Store_full-->
+                <TextBlock Text="存储器满 I6.0" Canvas.Left="2" Canvas.Top="303" FontSize="22" Foreground="#FF1A0F0F"  />
+                <Image Name="iv_Store_full"  Canvas.Left="277" Canvas.Top="302"   Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--I6.1	存储器空 Store_empty-->
+                <TextBlock  Text="存储器空I6.1" Canvas.Left="6" Canvas.Top="343" FontSize="22" Foreground="#FF1A0F0F"  />
+                <Image Name="iv_Store_empty" Canvas.Left="277" Canvas.Top="339"   Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--I6.2	存储器过载 Store_overload-->
+                <TextBlock  Text="存储器过载 I6.2	" Canvas.Left="6" Canvas.Top="381" FontSize="22" Foreground="#FF1A0F0F"  />
+                <Image Name="iv_Store_overload" Canvas.Left="278" Canvas.Top="378"    Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--I6.3	存储器入口有烟 Store_entrance_cig_exist-->
+                <TextBlock Canvas.Left="8" Canvas.Top="421" FontSize="22" Foreground="#FF1A0F0F"   Text="存储器入口有烟I6.3	" />
+                <Image Name="iv_Store_entrance_cig_exist" Canvas.Left="278" Canvas.Top="420"    Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--I6.4	存储器入口堵塞 Store_entrance_jam-->
+                <TextBlock Canvas.Left="8" Canvas.Top="459" FontSize="22" Foreground="#FF1A0F0F"   Text="存储器入口堵塞 I6.4	" />
+                <Image Name="iv_Store_entrance_jam" Canvas.Left="278" Canvas.Top="456"    Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--I6.5	存储器极限 Store_overlimit-->
+                <TextBlock Canvas.Left="344" Canvas.Top="4" FontSize="22" Foreground="#FF1A0F0F"  Text="存储器极限 I6.5" />
+                <Image Name="iv_Store_overlimit" Canvas.Left="613" Canvas.Top="0"   Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--I6.6	存储器运行中  Store_running-->
+                <TextBlock Canvas.Left="344" Canvas.Top="41" FontSize="22" Foreground="#FF1A0F0F"   Text="存储器运行中I6.6" />
+                <Image Name="iv_Store_running" Canvas.Left="614" Canvas.Top="38"    Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--I6.7	存储器使能中 Store_enabled-->
+                <TextBlock Canvas.Left="344" Canvas.Top="82" FontSize="22" Foreground="#FF1A0F0F"   Text="存储器使能中 I6.7" />
+                <Image Name="iv_Store_enabled" Canvas.Left="615" Canvas.Top="77"    Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+
+
+
+                <TextBlock Canvas.Left="12" Canvas.Top="159" FontSize="22" Foreground="#FF1A0F0F" Text="备用 I5.4" />
+                <Image Canvas.Left="277" Canvas.Top="153"  Source="/YF17A;component/image/debug_light_disable.png" Stretch="Uniform" />
+                <TextBlock Canvas.Left="13" Canvas.Top="195" FontSize="22" Foreground="#FF1A0F0F" Text="备用 I5.5" />
+                <Image Canvas.Left="277" Canvas.Top="189"  Source="/YF17A;component/image/debug_light_disable.png" Stretch="Uniform" />
+                <TextBlock Canvas.Left="12" Canvas.Top="232" FontSize="22" Foreground="#FF1A0F0F" Text="备用 I5.6" />
+                <Image Canvas.Left="277" Canvas.Top="226"  Source="/YF17A;component/image/debug_light_disable.png" Stretch="Uniform" />
+                <TextBlock Canvas.Left="8" Canvas.Top="269" FontSize="22" Foreground="#FF1A0F0F" Text="备用 I5.7" />
+                <Image Canvas.Left="277" Canvas.Top="263"  Source="/YF17A;component/image/debug_light_disable.png" Stretch="Uniform" />
+            </Canvas>
+        </Border>
+
+
+        <Border x:Name="status_layout_part3" BorderBrush="Silver" BorderThickness="5" Canvas.Left="0" Canvas.Top="49" Height="538"  Width="940" CornerRadius="10" >
+            <Canvas  Visibility="Visible">
+                <!--/******  Q4.0- Q4.7 *************/-->
+                <!--Q4.0	取样伺服驱动器使能 sample_servo_enable_Q-->
+                <TextBlock Canvas.Left="6" Canvas.Top="11" FontSize="22" Foreground="#FF1A0F0F"  Text="取样伺服驱动器使能 Q4.0" />
+                <Image Name="iv_sample_servo_enable_Q" Canvas.Left="309" Canvas.Top="10"   Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--Q4.1	弯道伺服驱动器使能 Corner_servo_enable_Q-->
+                <TextBlock Canvas.Left="6" Canvas.Top="49" FontSize="22" Foreground="#FF1A0F0F"   Text="弯道伺服驱动器使能 Q4.1" />
+                <Image Name="iv_Corner_servo_enable_Q" Canvas.Left="309" Canvas.Top="45"   Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--Q4.2	提升伺服驱动器使能 Lift_servo_enable_Q-->
+                <TextBlock Canvas.Left="5" Canvas.Top="89" FontSize="22" Foreground="#FF1A0F0F"   Text="提升伺服驱动器使能 Q4.2" />
+                <Image Name="iv_Lift_servo_enable_Q" Canvas.Left="309" Canvas.Top="80"   Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--Q4.3	传送伺服驱动器使能 Transfer_servo_enable_Q-->
+                <TextBlock Canvas.Left="5" Canvas.Top="127" FontSize="22" Foreground="#FF1A0F0F"  Text="传送伺服驱动器使能 Q4.3" />
+                <Image Name="iv_Transfer_servo_enable_Q" Canvas.Left="308" Canvas.Top="114"     Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--Q4.4	斜向伺服驱动器使能 Slope_servo_enable_Q-->
+                <TextBlock Canvas.Left="6" Canvas.Top="165" FontSize="22" Foreground="#FF1A0F0F"   Text="斜向伺服驱动器使能 Q4.4" />
+                <Image Name="iv_Slope_servo_enable_Q" Canvas.Left="308" Canvas.Top="150"   Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--Q4.5	存储伺服驱动器使能 Store_servo_enable_Q-->
+                <TextBlock  Canvas.Left="6" Canvas.Top="202" FontSize="22" Foreground="#FF1A0F0F" Text="存储伺服驱动器使能 Q4.5" />
+                <Image Name="iv_Store_servo_enable_Q" Canvas.Left="308" Canvas.Top="190"     Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--Q4.6	备用SpareOutput46-->
+                <!--Q4.7	备用SpareOutput47-->
+
+                <!--/******  Q5.0- Q5.7 *************/-->
+                <!--Q5.0	启动指示 Elevater_start_Q-->
+                <TextBlock Canvas.Left="5" Canvas.Top="314" FontSize="22" Foreground="#FF1A0F0F"  Text="启动指示 Q5.0" />
+                <Image Name="iv_Elevater_start_Q" Canvas.Left="306" Canvas.Top="305"     Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--Q5.1	复位指示 Elevater_reset_Q-->
+                <TextBlock Canvas.Left="1" Canvas.Top="352" FontSize="22" Foreground="#FF1A0F0F"   Text="复位指示 Q5.1" />
+                <Image Name="iv_Elevater_reset_Q" Canvas.Left="306" Canvas.Top="346"     Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--Q5.2	停机指示 Elevater_stop_Q-->
+                <TextBlock Canvas.Left="5" Canvas.Top="392" FontSize="22" Foreground="#FF1A0F0F"   Text="停机指示 Q5.2" />
+                <Image Name="iv_Elevater_stop_Q" Canvas.Left="306" Canvas.Top="386"     Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--Q5.3	存储器故障复位 Elevater_FaultReset_Q-->
+                <TextBlock Canvas.Left="5" Canvas.Top="430" FontSize="22" Foreground="#FF1A0F0F"   Text="存储器故障复位 Q5.3" />
+                <Image Name="iv_Elevater_FaultReset_Q" Canvas.Left="306" Canvas.Top="424"     Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--Q5.4	卷烟机允许 Maker_enable_relay_Q-->
+                <TextBlock Canvas.Left="5" Canvas.Top="464" FontSize="22" Foreground="#FF1A0F0F"   Text="卷烟机允许Q5.4" />
+                <Image Name="iv_Maker_enable_relay_Q" Canvas.Left="306" Canvas.Top="464"    Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--Q5.5	备用SpareOutput55-->
+                <!--Q5.6	备用SpareOutput56-->
+                <!--Q5.7	卷烟机快停 Maker_QuickStop_Q-->
+                <TextBlock Canvas.Left="360" Canvas.Top="47" FontSize="22" Foreground="#FF1A0F0F"  Text="卷烟机快停 Q5.7" />
+                <Image Name="iv_Maker_QuickStop_Q" Canvas.Left="594" Canvas.Top="46"    Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+
+                <!--/******  Q80- Q8.7 *************/-->
+                <!--Q8.0	存储振动检测 SpareOutput80-->
+                <!--Q8.1	备用SpareOutput81-->
+                <!--Q8.2	包装机允许 Packer_enable_relay_Q-->
+                <TextBlock Canvas.Left="360" Canvas.Top="165" FontSize="22" Foreground="#FF1A0F0F"  Text="包装机允许 Q8.2" />
+                <Image Name="iv_Packer_enable_relay_Q" Canvas.Left="595" Canvas.Top="159"    Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--Q8.3	包装机低速请求 Packer_LowSpeed_request_Q-->
+                <TextBlock Canvas.Left="360" Canvas.Top="200" FontSize="22" Foreground="#FF1A0F0F"  Text="包装机低速请求 Q8.3" />
+                <Image Name="iv_Packer_LowSpeed_request_Q" Canvas.Left="595" Canvas.Top="194"    Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--Q8.4	备用SpareOutput84-->
+                <!--Q8.5	备用SpareOutput85-->
+                <!--Q8.6	备用SpareOutput86-->
+                <!--Q8.7	启动指示 StoreUnit_start_Q-->
+                <TextBlock Canvas.Left="360" Canvas.Top="346" FontSize="22" Foreground="#FF1A0F0F"  Text="启动指示 Q8.7" />
+                <Image Name="iv_StoreUnit_start_Q" Canvas.Left="597" Canvas.Top="340"    Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+
+                <!--/******  Q9.0- Q9.7 *************/-->
+                <!--Q9.0	复位指示 StoreUnit_reset_Q-->
+                <TextBlock Canvas.Left="361" Canvas.Top="383" FontSize="22" Foreground="#FF1A0F0F"  Text="复位指示 Q9.0" />
+                <Image Name="iv_StoreUnit_reset_Q" Canvas.Left="598" Canvas.Top="377"    Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform" />
+                <!--Q9.1	停机指示 StoreUnit_stop_Q-->
+                <TextBlock  Text="停机指示 Q9.1" Canvas.Left="361" Canvas.Top="424" FontSize="22" Foreground="#FF1A0F0F" />
+                <Image  Name="iv_StoreUnit_stop_Q"   Canvas.Left="599" Canvas.Top="421"    Source="/YF17A;component/image/debug_light_enable.png" Stretch="Uniform"/>
+                <!--Q9.2	急停指示 SpareOutput92-->
+                <!--Q9.3	备用SpareOutput93-->
+                <!--Q9.4	备用SpareOutput94-->
+                <!--Q9.5	备用SpareOutput95-->
+                <!--Q9.6	备用SpareOutput96-->
+                <!--Q9.7	备用SpareOutput97-->
+
+                <TextBlock Canvas.Left="6" Canvas.Top="237" FontSize="22" Foreground="#FF1A0F0F" Text="备用 Q4.6" />
+                <Image Canvas.Left="307" Canvas.Top="225"  Source="/YF17A;component/image/debug_light_disable.png" Stretch="Uniform" />
+                <TextBlock Canvas.Left="6" Canvas.Top="272" FontSize="22" Foreground="#FF1A0F0F" Text="备用 Q4.7" />
+                <Image Canvas.Left="306" Canvas.Top="268"  Source="/YF17A;component/image/debug_light_disable.png" Stretch="Uniform" />
+                <TextBlock Canvas.Left="367" Canvas.Top="7" FontSize="22" Foreground="#FF1A0F0F" Text="备用 Q5.6" />
+                <Image Canvas.Left="594" Canvas.Top="10"  Source="/YF17A;component/image/debug_light_disable.png" Stretch="Uniform" />
+                <TextBlock Canvas.Left="367" Canvas.Top="89" FontSize="22" Foreground="#FF1A0F0F" Text="备用 Q8.0" />
+                <Image Canvas.Left="594" Canvas.Top="83"  Source="/YF17A;component/image/debug_light_disable.png" Stretch="Uniform" />
+                <TextBlock Canvas.Left="367" Canvas.Top="128" FontSize="22" Foreground="#FF1A0F0F" Text="备用 Q8.1" />
+                <Image Canvas.Left="594" Canvas.Top="119"  Source="/YF17A;component/image/debug_light_disable.png" Stretch="Uniform" />
+                <TextBlock Canvas.Left="367" Canvas.Top="237" FontSize="22" Foreground="#FF1A0F0F" Text="备用 Q8.4" />
+                <Image Canvas.Left="596" Canvas.Top="231"  Source="/YF17A;component/image/debug_light_disable.png" Stretch="Uniform" />
+                <TextBlock Canvas.Left="367" Canvas.Top="267" FontSize="22" Foreground="#FF1A0F0F" Text="备用Q8.5" />
+                <Image Canvas.Left="596" Canvas.Top="268"  Source="/YF17A;component/image/debug_light_disable.png" Stretch="Uniform" />
+                <TextBlock Canvas.Left="367" Canvas.Top="311" FontSize="22" Foreground="#FF1A0F0F" Text="备用 Q8.6" />
+                <Image Canvas.Left="597" Canvas.Top="305"  Source="/YF17A;component/image/debug_light_disable.png" Stretch="Uniform" />
+                <TextBlock Canvas.Left="665" Canvas.Top="49" FontSize="22" Foreground="#FF1A0F0F" Text="备用 Q9.4" />
+                <Image Canvas.Left="875" Canvas.Top="48"  Source="/YF17A;component/image/debug_light_disable.png" Stretch="Uniform" />
+                <TextBlock Canvas.Left="664" Canvas.Top="87" FontSize="22" Foreground="#FF1A0F0F" Text="备用 Q9.5" />
+                <Image Canvas.Left="875" Canvas.Top="87"  Source="/YF17A;component/image/debug_light_disable.png" Stretch="Uniform" />
+                <TextBlock Canvas.Left="664" Canvas.Top="126" FontSize="22" Foreground="#FF1A0F0F" Text="备用 Q9.6" />
+                <Image Canvas.Left="875" Canvas.Top="128"  Source="/YF17A;component/image/debug_light_disable.png" Stretch="Uniform" />
+                <TextBlock Canvas.Left="664" Canvas.Top="165" FontSize="22" Foreground="#FF1A0F0F" Text="备用 Q9.7" />
+                <Image Canvas.Left="875" Canvas.Top="166"  Source="/YF17A;component/image/debug_light_disable.png" Stretch="Uniform" />
+                <TextBlock Canvas.Left="367" Canvas.Top="458" FontSize="22" Foreground="#FF1A0F0F" Text="备用 Q9.2" />
+                <Image Canvas.Left="601" Canvas.Top="458"  Source="/YF17A;component/image/debug_light_disable.png" Stretch="Uniform" />
+                <TextBlock Canvas.Left="664" Canvas.Top="11" FontSize="22" Foreground="#FF1A0F0F" Text="备用Q9.3" />
+                <Image Canvas.Left="875" Canvas.Top="10"  Source="/YF17A;component/image/debug_light_disable.png" Stretch="Uniform" />
+            </Canvas>
+        </Border>
+
+
+
+
+    </Canvas>
+</Page>

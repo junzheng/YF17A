@@ -1,0 +1,100 @@
+﻿<UserControl x:Class="YF17A.UCWarningLights"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="610" d:DesignWidth="942">
+
+    <UserControl.Resources>
+        <Style TargetType="Image">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="Stretch" Value="None" />           
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Name="root">
+            <Image    Name="bg"    Source="/YF17A;component/image/home_bg.png" Width="942" Stretch="Uniform"   />
+            <!--  烟支动画-->
+            <Image  Margin="247,122,0,0" Name="iv_flow_bucket0"    Width="287"  Height="52" Stretch="UniformToFill"/>
+            <Image Height="52" Margin="246,147,0,0" Name="iv_flow_bucket1"  Stretch="UniformToFill" Width="287" />
+            <Image Height="52" Margin="246,174,0,0" Name="iv_flow_bucket2"  Stretch="UniformToFill" Width="287" />
+            <Image Height="52" Margin="247,202,0,0" Name="iv_flow_bucket3"  Stretch="UniformToFill" Width="287" />
+            <Image Height="52" Margin="247,229,0,0" Name="iv_flow_bucket4"  Stretch="UniformToFill" Width="287" />
+            <Image Height="52" Margin="246,255,0,0" Name="iv_flow_bucket5"  Stretch="UniformToFill" Width="287" />
+            <Image Height="52" Margin="246,282,0,0" Name="iv_flow_bucket6"  Stretch="UniformToFill" Width="287" />
+            <Image Height="52" Margin="247,311,0,0" Name="iv_flow_bucket7"   Stretch="UniformToFill" Width="287" />
+            <Image Height="52" Margin="247,338,0,0" Name="iv_flow_bucket8"  Stretch="UniformToFill" Width="287" />
+            <Image Height="52" Margin="247,365,0,0" Name="iv_flow_bucket9"    Stretch="UniformToFill" Width="287" />
+            <Image Height="52" Margin="247,391,0,0" Name="iv_flow_bucket10"   Stretch="UniformToFill" Width="287" />
+
+            <Image  Margin="149,46,0,0" Name="iv_flow_shuiping0" Source="/YF17A;component/image/flow_shuiping_00.png"   Width="149" Height="32"   Stretch="UniformToFill"/>
+            <Image  Margin="288,46,0,0" Name="iv_flow_shuiping1" Source="/YF17A;component/image/flow_shuiping_00.png"  Height="32" Width="149" Stretch="UniformToFill"/>
+            <Image Margin="426,46,0,0" Name="iv_flow_shuiping2" Source="/YF17A;component/image/flow_shuiping_00.png"  Width="149"  Height="32" Stretch="UniformToFill" />
+            <Image  Margin="564,46,0,0" Name="iv_flow_shuiping3" Source="/YF17A;component/image/flow_shuiping_00.png"  Width="149" Height="32" Stretch="UniformToFill"/>
+        <Image  Margin="817,322,0,0" Name="iv_flow_sample" Source="/YF17A;component/image/flow_shuiping_00.png" Height="32" Width="66" Stretch="UniformToFill"  />
+        
+            <Image  Margin="695,47,0,0" Name="iv_flow_tisheng0" Source="/YF17A;component/image/flow_tisheng1_00.png"   Width="76" Height="72"  Stretch="UniformToFill"/>
+            <Image  Margin="738,231,0,0" Name="iv_flow_tisheng1" Source="/YF17A;component/image/flow_tisheng2_00.png"   Width="93"   Height="121" Stretch="UniformToFill"/>
+            <Image  Margin="738,106,0,0" Name="iv_flow_chuizhi" Source="/YF17A;component/image/flow_chuizhi_00.png"   Width="28" Height="142"  Stretch="UniformToFill"/>
+            <Image  Margin="105,100,0,0" Name="iv_flow_slope" Source="/YF17A;component/image/flow_slope_00.png" Width="145" Height="45" Stretch="UniformToFill" />
+            <Image  Margin="73,45,0,0" Name="iv_flow_xiajiang0" Source="/YF17A;component/image/flow_xiajiang1_00.png" Width="90" Height="62"  Stretch="UniformToFill" />
+            <Image  Margin="77,94,0,0" Name="iv_flow_xiajiang1" Source="/YF17A;component/image/flow_xiajiang2_00.png" Width="31" Height="53" Stretch="UniformToFill" />
+            
+        
+            <!--alarm_downport_entrance_jam	Bool	下降口入口堵塞报警指示		只读	指示灯/报警条显示	M50.2-->
+            <Image  Name="iv_alarm_downport_entrance_jam" Source="/YF17A;component/image/light_red.png"     Margin="35,33,0,0" />
+            <Image  Name="help_alarm_downport_entrance_jam" ToolTip="下降口入口堵塞报警指示"  Source="/YF17A;component/image/help.png"      Margin="45,12,0,0" />
+            <!-- alarm_transfer_overload	Bool	传送电机过载报警指示		只读	指示灯/报警条显示	M50.3-->
+            <Image Name="iv_alarm_transfer_overload" Source="/YF17A;component/image/light_red.png"   Margin="98,25,0,0" />
+            <Image Name="help_alarm_transfer_overload" ToolTip="传送电机过载报警指示"  Source="/YF17A;component/image/help.png"     Margin="110,5,0,0" />
+            <!-- Transfer_cig_exist	Bool	高架有烟存在	B-PSW201	只读	指示灯	I4.2-->
+            <Image  Name="iv_Transfer_cig_exist"  Source="/YF17A;component/image/light_yellow.png"    Margin="165,38,0,0" />
+            <Image  Name="help_Transfer_cig_exist" ToolTip="高架有烟存在" Source="/YF17A;component/image/help.png"      Margin="176,21,0,0" />
+            <!--Slope_empty	Bool	斜向通道空	B-PRX202	只读	指示灯	I4.1-->
+            <Image  Name="iv_Slope_empty" Source="/YF17A;component/image/light_yellow.png"    Margin="63,83,0,0" />
+            <Image Name="help_Slope_empty" ToolTip="斜向通道空"  Source="/YF17A;component/image/help.png"      Margin="75,66,0,0" />
+
+            <!--Store_entrance_cig_exist	Bool	存储器入口有烟传感器	B-PSW301	只读	指示灯	I5.3-->
+            <Image Name="iv_Store_entrance_cig_exist" Source="/YF17A;component/image/light_yellow.png"    Margin="149,91,0,0" />
+            <Image  Name="help_Store_entrance_cig_exist" ToolTip="存储器入口有烟传感器" Source="/YF17A;component/image/help.png"      Margin="159,73,0,0" />
+            <!--alarm_store_entrance_jam	Bool	存储器入口堵塞报警指示		只读	指示灯/报警条显示	M50.5-->
+            <Image  Name="iv_alarm_store_entrance_jam" Source="/YF17A;component/image/light_red.png"  Margin="193,101,0,0" />
+            <Image  Name="help_alarm_store_entrance_jam" ToolTip="存储器入口堵塞报警指示" Source="/YF17A;component/image/help.png"    Margin="206,84,0,0" />
+            <!-- alarm_store_overload	Bool	存储器过载报警指示		只读	指示灯/报警条显示	M50.4-->
+            <Image  Name="iv_alarm_store_overload" Source="/YF17A;component/image/light_red.png"  Margin="311,103,0,0" />
+            <Image   Name="help_alarm_store_overload" ToolTip="存储器过载报警指示" Source="/YF17A;component/image/help.png"    Margin="320,83,0,0" />
+            <!-- Store_full	Bool	存储器满传感器	B-PRX301	只读	指示灯	I5.0-->
+            <Image  Name="iv_Store_full" Source="/YF17A;component/image/light_red.png"  Margin="255,389,0,0" />
+            <Image   Name="help_Store_full" ToolTip="存储器满传感器" Source="/YF17A;component/image/help.png"    Margin="265,370,0,0" />
+            <!-- alarm_store_limit_on	Bool	存储器极限位置到达报警指示		只读	指示灯	M60.2-->
+            <Image  Name="iv_alarm_store_limit_on" Source="/YF17A;component/image/light_red.png"  Margin="320,394,0,0" />
+            <Image  Name="help_alarm_store_limit_on"  ToolTip="存储器极限位置到达报警指示" Source="/YF17A;component/image/help.png"    Margin="332,376,0,0" />
+
+            <!--StoreUnit_e_stop_button	Bool	下降口紧急停止按钮	SB205	只读	指示灯/报警条显示	I3.5-->
+            <Image   Name="iv_StoreUnit_e_stop_button" Source="/YF17A;component/image/light_red.png"  Margin="142,264,0,0" />
+            <Image   Name="help_StoreUnit_e_stop_button" ToolTip="下降口紧急停止按钮" Source="/YF17A;component/image/help.png"  Margin="153,249,0,0" />
+
+            <!-- Emergency_stop	Bool	控制柜紧急停止回路断开	K01	只读	指示灯/报警条显示	I0.0-->
+            <Image  Name="iv_Emergency_stop" Source="/YF17A;component/image/light_red.png"  Margin="759,210,0,0" />
+            <Image  Name="help_Emergency_stop" ToolTip="控制柜紧急停止回路断开" Source="/YF17A;component/image/help.png"   Margin="772,191,0,0" />
+            <!--Elevater_e_stop	Bool	提升机紧急停止按钮	SB105	只读	指示灯/报警条显示	I1.7-->
+            <Image  Name="iv_Elevater_e_stop" Source="/YF17A;component/image/light_red.png"  Margin="773,292,0,0" />
+            <Image  Name="help_Elevater_e_stop" ToolTip="提升机紧急停止按钮"  Source="/YF17A;component/image/help.png"   Margin="784,275,0,0" />
+            <!--Sample_entrance_sensor	Bool	取样入口有烟传感器	B-PSW101	只读	指示灯	I2.3-->
+            <Image    Name="iv_Sample_entrance_sensor"    Source="/YF17A;component/image/light_yellow.png"    Margin="799,325,0,0" />
+            <Image    Name="help_Sample_entrance_sensor"  ToolTip="取样入口有烟传感器"   Source="/YF17A;component/image/help.png"    Margin="814,306,0,0" />
+            <!-- alarm_corner_entrance_jam	Bool	弯道入口堵塞报警指示		只读	指示灯/报警条显示	M50.1-->
+            <Image   Name="iv_alarm_corner_entrance_jam" Source="/YF17A;component/image/light_red.png"  Margin="738,339,0,0" />
+            <Image   Name="help_alarm_corner_entrance_jam"  ToolTip="弯道入口堵塞报警指示" Source="/YF17A;component/image/help.png"    Margin="747,322,0,0" />
+
+            <!--Packer_enable_relay_Q	Bool	包装机允许（备用）	K107	只读	指示灯	Q8.2-->
+            <Image  Margin="89,391,0,0" Name="iv_Packer_enable_relay_Q" Source="/YF17A;component/image/light_red.png"  />
+            <Image  Margin="99,370,0,0" Name="help_Packer_enable_relay_Q" Source="/YF17A;component/image/help.png"  ToolTip="包装机允许" />
+
+            <!--Maker_enable_relay_Q	Bool	卷烟机允许(备用)	K101	只读	指示灯	Q5.4-->
+            <Image  Margin="743,398,0,0" Name="iv_Maker_enable_relay_Q" Source="/YF17A;component/image/light_red.png"  />
+            <Image  Margin="754,377,0,0" Name="help_Maker_enable_relay_Q" Source="/YF17A;component/image/help.png"  ToolTip="卷烟机允许"  />
+         </Grid>
+</UserControl>

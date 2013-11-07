@@ -1,0 +1,21 @@
+﻿<Page x:Class="YF17A.PageStatus"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="30" d:DesignWidth="1024"
+	Title="PageStatus">
+
+    <Grid x:Name="statusPanel">
+    <StackPanel  Orientation="Horizontal" >
+            <Image  Source="image/logo1.bmp" Stretch="Uniform" />
+        <TextBlock x:Name="user" Text="" FontSize="20"    Margin="10,3,20,0" />
+            <TextBlock x:Name="role" Text="" FontSize="18"   Margin="0,3,0,0"  />
+    </StackPanel>
+
+        <Label  Name="lb_path"  Content="主页" FontSize="20"   Padding="0,0,0,5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Name="lb_code"  Content="" FontSize="18" Padding="0,0,0,5"  HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,320,0"  />
+        <Label Name="lb_time" Content=""  FontSize="18" Padding="0,0,0,5" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0"  />
+    </Grid>
+</Page>
